@@ -21,10 +21,61 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/startButtonText"
+        app:layout_constraintBottom_toTopOf="@+id/changeTimerseekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countDownView"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <TextView
+        android:id="@+id/numberOfRepetitionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numberOfRepetitionsText"
+        app:layout_constraintEnd_toEndOf="@+id/numberOfRepetitionsEditText"
+        app:layout_constraintStart_toStartOf="@+id/numberOfRepetitionsEditText"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfRepetitionsEditText" />
+
+    <EditText
+        android:id="@+id/numberOfRepetitionsEditText"
+        android:layout_width="28dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="number"
+
+        app:layout_constraintBottom_toTopOf="@+id/changeTimerseekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startCountdownButton" />
+
+
+    <SeekBar
+        android:id="@+id/changeTimerseekBar"
+        android:layout_width="195dp"
+        android:layout_height="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/countDownView" />
+
+    <TextView
+        android:id="@+id/seekBarExplenationtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarExplenationText"
+        app:layout_constraintEnd_toEndOf="@+id/changeTimerseekBar"
+        app:layout_constraintStart_toStartOf="@+id/changeTimerseekBar"
+        app:layout_constraintTop_toBottomOf="@+id/changeTimerseekBar" />
+
+    <TextView
+        android:id="@+id/countdownExplenationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/countdownExplenationText"
+        app:layout_constraintBottom_toTopOf="@+id/countDownView"
+        app:layout_constraintEnd_toEndOf="@+id/countDownView"
+        app:layout_constraintStart_toStartOf="@+id/countDownView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

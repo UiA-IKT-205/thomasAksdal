@@ -22,4 +22,15 @@ class ExampleUnitTest {
         assertEquals("00:01:30", millisecondsToDescriptiveTime(90000))
         assertEquals("02:30:01",millisecondsToDescriptiveTime(9001000))
     }
+
+    @Test
+    fun testMinuteToMsConvertsion(){
+        assertEquals(605000, minutesToMilliSeconds(1))
+    }
+
+
+    @Test
+    fun testSecondsToMsConversion(){
+        assertEquals(2000, secondsToMilliSeconds(2))
+    }
 }
