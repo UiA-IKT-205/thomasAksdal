@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     val timeToCountDownInMs = 5000L
     val timeTicks = 1000L
+    private val buttonTimeIncrement = 30L
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +28,33 @@ class MainActivity : AppCompatActivity() {
        startButton.setOnClickListener(){
            startCountDown(it)
        }
-       coutdownDisplay = findViewById<TextView>(R.id.countDownView)
+       countdownDisplay = findViewById<TextView>(R.id.countDownView)
 
+        val setTimerDurationButtons = listof<Button>(findViewById<Button>(R.id.setTimerDuration30MinutesButton),
+        findViewById<Button>(R.id.setTimerDuration60MinutesButton),
+        findViewById<Button>(R.id.setTimerDuration90MinutesButton),
+        findViewById<Button>(R.id.setTimerDuration120MinutesButton)
+        )
+
+        setTimerDurationButtons.forEachIndexed(){ index, button ->
+            button.setOnClickListener(){
+                val newCountdownTime = minutesToMilliSeconds((index+1) * buttonTimeIncrement)
+                setCountdownTime(newCountdownTime)
+
+            }
+        }
     }
 
-    fun startCountDown(v: View){
+    fun setCountdownTime(newCountdownTimeInMs:Long){
+        timeToCountDownInMs = newCountdownTimeInMs
+        updateCountDownDisplay(timeToCountDownInMs)
+    }
+
+    fun startCountDown(viewOfTimer: View){
 
         timer = object : CountDownTimer(timeToCountDownInMs,timeTicks) {
             override fun onFinish() {
+                viewOfTimer.isEnabled = true
                 Toast.makeText(this@MainActivity,"Arbeidsøkt er ferdig", Toast.LENGTH_SHORT).show()
             }
 
@@ -41,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                updateCountDownDisplay(millisUntilFinished)
             }
         }
-
+        viewOfTimer.isEnabled = false
         timer.start()
     }
 
