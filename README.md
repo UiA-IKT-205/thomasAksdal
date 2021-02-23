@@ -1,2 +1,1 @@
-# thomasAksdal
-IKT205
+#Ikt205
